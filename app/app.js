@@ -1,6 +1,7 @@
 import Express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import busRouteRouter from "../routes/busRoute.routes.js"
 
 const app = Express();
 
@@ -13,5 +14,7 @@ app.get('/', (req, res) => {
         "Hello from Hexclan"
     )
 });
+
+app.use('/api/v1/busRoutes', busRouteRouter);
 
 export default app;
