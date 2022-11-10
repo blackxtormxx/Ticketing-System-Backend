@@ -8,7 +8,7 @@ const busTypeSchema = mongoose.Schema({
     route: String
 });
 
-const busType = mongoose.model('busRoute', busTypeSchema);
+const busType = mongoose.model('busType', busTypeSchema);
 
 export default busType;
 
