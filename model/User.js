@@ -15,13 +15,12 @@ const userSchema = mongoose.Schema({
         required: true
     },
     name: String,
-    address: String,
     contactNo: String,
     balance: Number
 
 
 
-    
+
 
 });
 
