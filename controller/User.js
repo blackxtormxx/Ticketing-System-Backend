@@ -10,7 +10,7 @@ export const registerUser = async (req, res) => {
         const salt = await bcrypt.genSalt(Number(process.env.SALT));
         const hashPassword = await bcrypt.hash(req.body.password,salt);
 
-        const newUser = await new User({...req.body,password:hashPassword}).save();
+        const newUser = await new User({...req.body,password:hashPassword,balance:0}).save();
         const token = newUser.generateAuthToken();
         res.status(200).send({data:{token: token, id: newUser._id},message:"Registered in successfully!"});
 

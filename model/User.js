@@ -17,8 +17,8 @@ const userSchema = mongoose.Schema({
     name: String,
     address: String,
     contactNo: String,
+    balance: Number
 
-    
 });
 
 userSchema.methods.generateAuthToken = function(){
