@@ -19,6 +19,10 @@ const userSchema = mongoose.Schema({
     contactNo: String,
     balance: Number
 
+
+
+    
+
 });
 
 userSchema.methods.generateAuthToken = function(){
