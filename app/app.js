@@ -19,4 +19,9 @@ app.get('/', (req, res) => {
 app.use('/api/v1/busRoutes', busRouteRouter);
 app.use('/api/v1/busTypes', busTypeRouter);
 
+app.use('/user', user_regSchema);
+
+
+
+
 export default app;
