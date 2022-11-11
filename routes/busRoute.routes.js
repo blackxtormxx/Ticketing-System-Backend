@@ -5,8 +5,8 @@ import { addBusRoute, deleteBusRoute, getAllBusRoutes, getBusRoute } from "../co
 const router = Express.Router();
 
 router.get('/', getAllBusRoutes);
-router.post('/', addBusRoute);
 router.get('/:id', getBusRoute);
+router.post('/', addBusRoute);
 router.delete('/:id', deleteBusRoute);
 
 export default router;

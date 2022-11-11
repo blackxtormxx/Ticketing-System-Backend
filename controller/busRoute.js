@@ -12,7 +12,8 @@ export const getAllBusRoutes = async (req, res) => {
 
 export const getBusRoute = async (req, res) => {
     try {
-        const newBusRoute = await busRoute.find();
+        const {id} = req.params; 
+        const newBusRoute = await busRoute.findById(id);
         res.status(200).json(newBusRoute);
     } catch (error) {
         res.status(404).json({message: error.message});

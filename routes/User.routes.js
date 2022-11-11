@@ -1,5 +1,5 @@
 import Express  from "express";
-import { addCoFounderDetails, authUser, registerUser } from "../controller/User.js";
+import { authUser, registerUser } from "../controller/User.js";
 
 const router = Express.Router();
 
