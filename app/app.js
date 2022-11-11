@@ -4,6 +4,7 @@ import cors from "cors";
 import busRouteRouter from "../routes/busRoute.routes.js"
 import busTypeRouter from "../routes/busType.routes.js"
 import userRoutes from "../routes/User.routes.js"
+import ticketRoutes from "../routes/ticket.routes.js"
 
 const app = Express();
 
@@ -20,9 +21,8 @@ app.get('/', (req, res) => {
 app.use('/api/v1/busRoutes', busRouteRouter);
 app.use('/api/v1/busTypes', busTypeRouter);
 
-app.use('/user', userRoutes);
-
-
+app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/ticket', ticketRoutes);
 
 
 export default app;

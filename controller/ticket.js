@@ -1,9 +1,9 @@
-import ticket from "../model/Ticket.js";
+import ticket1 from "../model/Ticket.js";
 import User from "../model/User.js";
 
 export const getAllTicket = async (req, res) => {
     try {
-        const tickets = await ticket.find();
+        const tickets = await ticket1.find();
         res.status(200).json(tickets);
     } catch (error) {
         res.status(404).json({message: error.message});
@@ -13,7 +13,7 @@ export const getAllTicket = async (req, res) => {
 export const getTicket = async (req, res) => {
     try {
         const {id} = req.params; 
-        const newTicket = await busRoute.findById(id);
+        const newTicket = await ticket1.findById(id);
         res.status(200).json(newTicket);
     } catch (error) {
         res.status(404).json({message: error.message});
@@ -22,8 +22,10 @@ export const getTicket = async (req, res) => {
 
 export const addTicket = async (req, res) => {
     try {
-        const {userId, startStop, endStop, route, ticketPrice} = req.body;
-        const request = new busRoute({userId, startStop, endStop, route, ticketPrice});
+        const {ticket, price, route, userId} = req.body;
+        const request = new ticket1({userId, startStop: ticket.startStop, endStop: ticket.endStop, route: ticket.routeName, ticketPrice: price});
+        // console.log(req.body);
+        // console.log(request);
         const savedTicket = await request.save();
         res.status(201).json(savedTicket);
     } catch (error) {

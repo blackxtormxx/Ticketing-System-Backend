@@ -21,10 +21,12 @@ export const getBusType = async (req, res) => {
 
 export const addBusType = async (req, res) => {
     try {
-        const {name, capacity, numberPlate, day, route} = req.body;
-        const request = new busType({name, capacity, numberPlate, day, route});
+        const routeObj = JSON.parse(req.body.route)
+        const {name, capacity, numberPlate, day} = req.body;
+        const request = new busType({name, capacity, numberPlate, day, route:routeObj.route, routeName: routeObj.name });
         const busTypeSaved = await request.save();
         res.status(201).json(busTypeSaved);
+        console.log(request);
     } catch (error) {
         res.status(404).json({message: error.message});
     }

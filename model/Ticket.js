@@ -6,7 +6,10 @@ const ticketSchema = mongoose.Schema({
     startStop: String,
     endStop: String,
     ticketPrice: Number,
-    date: new Date()
+    ticketDate: {
+        type: Date,
+        default: new Date()
+    }
 });
 
 const ticket = mongoose.model('ticket', ticketSchema);
