@@ -38,4 +38,20 @@ export const authUser = async (req, res) => {
     }
 }
 
+export const rechargeAcc = async (req, res) => {
+    try {
+        const {id} = req.params
+        const {amt} = req.body;
+        const user = await User.findById(id);
+        if(!user)
+            return res.status(401).send({message:"User not found"});
+        const exBal = user.balance;
+            const newUesr = await User.findByIdAndUpdate(id, {balance: exBal + amt});
+
+
+        res.status(200).send({data:newUesr ,message:"Payment successful"});
+    } catch (error) {
+        res.status(500).send({message:error.message});
+    }
+}
 
