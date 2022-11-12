@@ -3,7 +3,7 @@ import busRoute from "../model/busRoute.js";
 
 let factory = new BusRouteErrorFactory();
 
-
+/** This method returns all the bus routes */
 export const getAllBusRoutes = async (req, res) => {
     try {
         const newBusRoute = await busRoute.find();
@@ -13,6 +13,7 @@ export const getAllBusRoutes = async (req, res) => {
     }
 }
 
+/** This method returns a specific bus routes */
 export const getBusRoute = async (req, res) => {
     try {
         const {id} = req.params; 
@@ -23,6 +24,7 @@ export const getBusRoute = async (req, res) => {
     }
 }
 
+/** This method adds a bus routes */
 export const addBusRoute = async (req, res) => {
     try {
         const {name, stopList, ticketPrice} = req.body;
@@ -34,6 +36,7 @@ export const addBusRoute = async (req, res) => {
     }
 }
 
+/** This method delete a select bus routes */
 export const deleteBusRoute = async (req, res) => {
     try {
         const {id} = req.params;
@@ -44,7 +47,7 @@ export const deleteBusRoute = async (req, res) => {
     }
 }
 
-
+/** This method returns all the bus routes */
 export const adddBusRoute = (req, res) => {
     const route = req.body;
     const {id} = req.params;
