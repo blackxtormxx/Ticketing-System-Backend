@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "jest": {
+    "transform": {}
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
