@@ -1,4 +1,4 @@
-import GeneralError from "./GeneralError.js";
+import GeneralError from "../GeneralError.js";
 
 class BusRouteError extends GeneralError{
     constructor(params) {
