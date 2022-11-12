@@ -6,7 +6,7 @@ let factory = new BusRouteErrorFactory();
 
 export const getAllBusRoutes = async (req, res) => {
     try {
-        const newBusRoute = await busRoute.find1();
+        const newBusRoute = await busRoute.find();
         res.status(200).json(newBusRoute);
     } catch (error) {
         res.status(404).json({message: factory.createError({type: 'get'})});
