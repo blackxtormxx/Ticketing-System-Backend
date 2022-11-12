@@ -46,7 +46,7 @@ export const rechargeAcc = async (req, res) => {
         if(!user)
             return res.status(401).send({message:"User not found"});
         const exBal = user.balance;
-            const newUesr = await User.findByIdAndUpdate(id, {balance: exBal + amt});
+            const newUesr = await User.findByIdAndUpdate(id, {balance: +exBal + +amt});
 
 
         res.status(200).send({data:newUesr ,message:"Payment successful"});
