@@ -52,7 +52,7 @@ export const adddBusRoute = (req, res) => {
     const route = req.body;
     const {id} = req.params;
     const request = new busRoute({route});
-    if (!route) {
+    if (route) {
       res.sendStatus(201)
       res.send({})
       return
