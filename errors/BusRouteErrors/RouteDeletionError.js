@@ -1,4 +1,4 @@
-import GeneralError from "./GeneralError.js";
+import GeneralError from "../GeneralError.js";
 
 class RouteDeletionError extends GeneralError{
     constructor(params) {

@@ -1,12 +1,14 @@
+import BusTypeErrorFactory from "../errors/BusTypeErrors/BusTypeErrorFactory.js"
 import busType from "../model/busType.js";
 
+let factory = new BusTypeErrorFactory();
 
 export const getAllBusTypes = async (req, res) => {
     try {
         const newBusType = await busType.find();
         res.status(200).json(newBusType);
-    } catch (error) {
-        res.status(404).json({message: error.message});
+    } catch (error) { 
+        res.status(404).json({message: factory.createError({type: 'get'})});
     }
 }
 
@@ -15,7 +17,7 @@ export const getBusType = async (req, res) => {
         const newBusType = await busType.find();
         res.status(200).json(newBusType);
     } catch (error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json({message: factory.createError({type: 'get'})});
     }
 }
 
@@ -28,7 +30,7 @@ export const addBusType = async (req, res) => {
         res.status(201).json(busTypeSaved);
         console.log(request);
     } catch (error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json({message: factory.createError({type: 'create'})});
     }
 }
 
@@ -38,6 +40,18 @@ export const deleteBusType = async (req, res) => {
         const deletedBusType = await busType.findByIdAndDelete(id);
         res.status(200).json(deletedBusType);
     } catch (error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json({message: factory.createError({type: 'delete'})});
     }
+}
+
+export const adddBusType = (req, res) => {
+    const route = req.body;
+    const {id} = req.params;
+    const request = new busType({route});
+    if (!route) {
+      res.sendStatus(201)
+      res.send({})
+      return
+    }
+    res.send({});
 }
