@@ -38,4 +38,16 @@ export const authUser = async (req, res) => {
     }
 }
 
+export const getUserDetails = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const user = await User.findById(id);
+        if(!user)
+            return res.status(401).send({message:"Invalid Email or Password"});
+        res.status(200).send({ user, message:"Hello"});
+    } catch (error) {
+        res.status(500).send({message:error.message});
+    }
+}
+
 
