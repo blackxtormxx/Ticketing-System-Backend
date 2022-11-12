@@ -5,6 +5,7 @@ const router = Express.Router();
 
 router.post('/', authUser);
 router.post('/register', registerUser);
+router.get('/payment', registerUser);
 router.post('/payment/:id', rechargeAcc);
 
 
