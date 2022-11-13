@@ -3,6 +3,8 @@ import busType from "../model/busType.js";
 
 let factory = new BusTypeErrorFactory();
 
+/** This method returns all the bus types */
+
 export const getAllBusTypes = async (req, res) => {
     try {
         const newBusType = await busType.find();
@@ -12,6 +14,8 @@ export const getAllBusTypes = async (req, res) => {
     }
 }
 
+/** This method returns a bus types */
+
 export const getBusType = async (req, res) => {
     try {
         const newBusType = await busType.find();
@@ -20,6 +24,8 @@ export const getBusType = async (req, res) => {
         res.status(404).json({message: factory.createError({type: 'get'})});
     }
 }
+
+/** This method adds a bus types */
 
 export const addBusType = async (req, res) => {
     try {
@@ -34,6 +40,8 @@ export const addBusType = async (req, res) => {
     }
 }
 
+/** This method deletes a bus types */
+
 export const deleteBusType = async (req, res) => {
     try {
         const {id} = req.params;
@@ -43,6 +51,8 @@ export const deleteBusType = async (req, res) => {
         res.status(404).json({message: factory.createError({type: 'delete'})});
     }
 }
+
+/** This method returns all the bus types */
 
 export const adddBusType = (req, res) => {
     const route = req.body;
