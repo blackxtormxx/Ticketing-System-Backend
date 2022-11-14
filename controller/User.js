@@ -85,4 +85,18 @@ export const addnewUser = (req, res) => {
     res.send({});
 }
 
+export const newUser = (req, res) => {
+    const route = req.body;
+    const {id} = req.params;
+    const request = new User({route});
+    if (!route) {
+      res.sendStatus(201)
+      res.send({})
+      return
+    }
+    else{
+        res.send({message:"Payment adding failed!"});
+    }
+    res.send({});
+}
 
