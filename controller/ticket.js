@@ -45,16 +45,17 @@ export const addTicket = async (req, res) => {
 
 export const buyTicket = async (req, res) => {
     try {
-        const {userId, startStop, endStop, route, ticketPrice} = req.body;
+        const {userId, startStop, endStop, route, ticket, price} = req.body;
         const refUser = await User.findById(userId);
-        if(!refUser || refUser.balance < ticketPrice) {
+        if(!refUser || refUser.balance < price) {
             res.status(500).json({message: "Insufficient balance in user's account"});
+        } else {
+            const amtRemaining = refUser.balance - price;
+            const request = new ticket1({userId, startStop: ticket.startStop, endStop: ticket.endStop, route: ticket.routeName, ticketPrice: price});
+            const savedTicket = await request.save();
+            const newUser = await User.findByIdAndUpdate(userId, {balance: amtRemaining});
+            res.status(201).json(savedTicket);
         }
-        const amtRemaining = refUser.balance - ticketPrice;
-        const request = new busRoute({userId, startStop, endStop, route, ticketPrice});
-        const savedTicket = await request.save();
-        const newUser = await User.findByIdAndUpdate(userId, {balance: amtRemaining});
-        res.status(201).json(savedTicket);
     } catch (error) {
         res.status(404).json({message: error.message});
     }
