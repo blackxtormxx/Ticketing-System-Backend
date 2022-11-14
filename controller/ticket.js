@@ -1,6 +1,8 @@
 import ticket1 from "../model/Ticket.js";
 import User from "../model/User.js";
 
+/** This method returns all the bus tickets */
+
 export const getAllTicket = async (req, res) => {
     try {
         const tickets = await ticket1.find();
@@ -9,6 +11,9 @@ export const getAllTicket = async (req, res) => {
         res.status(404).json({message: error.message});
     }
 }
+
+
+/** This method returns a specific ticket */
 
 export const getTicket = async (req, res) => {
     try {
@@ -19,6 +24,9 @@ export const getTicket = async (req, res) => {
         res.status(404).json({message: error.message});
     }
 }
+
+
+/** This method add a ticket */
 
 export const addTicket = async (req, res) => {
     try {
@@ -32,6 +40,8 @@ export const addTicket = async (req, res) => {
         res.status(404).json({message: error.message});
     }
 }
+
+/** This method buys a  bus ticket */
 
 export const buyTicket = async (req, res) => {
     try {
@@ -49,6 +59,8 @@ export const buyTicket = async (req, res) => {
         res.status(404).json({message: error.message});
     }
 }
+
+/** This method returns all the user's bus routes */
 
 export const getUserTickets = async (req, res) => {
     try {

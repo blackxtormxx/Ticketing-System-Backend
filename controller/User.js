@@ -6,6 +6,7 @@ import RegisterErrorFactory from "../errors/RegistationErrors/RegistationErrorFa
 
 let factory = new RegisterErrorFactory();
 
+/** This method registers a user */
 
 export const registerUser = async (req, res) => {
     try {
@@ -24,6 +25,8 @@ export const registerUser = async (req, res) => {
         res.status(500).send({message:error.message});
     }
 }
+
+/** This method authenticates a user */
 
 export const authUser = async (req, res) => {
     try {
@@ -44,6 +47,8 @@ export const authUser = async (req, res) => {
     }
 }
 
+/** This method recharges a user's balance */
+
 export const rechargeAcc = async (req, res) => {
     try {
         const {id} = req.params
@@ -61,6 +66,8 @@ export const rechargeAcc = async (req, res) => {
     }
 }
 
+/** This method returns details of a specific user */
+
 export const getUserDetails = async (req, res) => {
     try {
         const {id} = req.params;
@@ -72,6 +79,8 @@ export const getUserDetails = async (req, res) => {
         res.status(500).send({message:error.message});
     }
 }
+
+/** This method returns all the users */
 
 export const addnewUser = (req, res) => {
     const route = req.body;
