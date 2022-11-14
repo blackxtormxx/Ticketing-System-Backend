@@ -1,6 +1,6 @@
 import RegisterError from "./RegisterError.js"
 import RegisterUserError from "./RegisterUserError.js"
-
+import Usealreadyexist from "./Useralreadyexist.js"
 
 
 class RegisterErrorFactory {
@@ -10,6 +10,9 @@ class RegisterErrorFactory {
      if(data.type == 'create') return new RegisterError(data)
     //  if(data.type == 'get') return new RouteNotFound(data)
      if(data.type == 'general') return new RegisterUserError(data)
+
+     if(data.type == 'secondary') return new Usealreadyexist(data)
+
     }
 }
 
