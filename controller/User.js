@@ -12,7 +12,7 @@ export const registerUser = async (req, res) => {
     try {
         const user = await User.findOne({username:req.body.username});
         if(user)
-            return res.status(409).send({message:"User with given username address already exist!!"});
+            return res.status(409).send({message: factory.createError('secondary')});
 
         const salt = await bcrypt.genSalt(Number(process.env.SALT));
         const hashPassword = await bcrypt.hash(req.body.password,salt);
