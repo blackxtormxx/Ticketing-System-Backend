@@ -5,7 +5,8 @@ const busTypeSchema = mongoose.Schema({
     numberPlate: String,
     day: String,
     capacity: Number,
-    route: String
+    route: String,
+    routeName: String
 });
 
 const busType = mongoose.model('busType', busTypeSchema);
